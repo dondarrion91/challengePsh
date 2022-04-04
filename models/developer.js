@@ -11,19 +11,6 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Developer.associate = (models) => {
-        Developer.belongsToMany(models.Hackaton, {
-          foreignKey: 'hackatonId',
-          through: 'DeveloperHackatons',
-          as: 'Hackaton'
-        });
-
-        Developer.belongsToMany(models.Ranking, {
-          foreignKey: 'rankingId',
-          through: 'RankingDeveloper',
-          as: 'Ranking'
-        });
-      };
     }
   }
   Developer.init({
@@ -31,10 +18,16 @@ module.exports = (sequelize, DataTypes) => {
     lastName: DataTypes.STRING,
     gender: DataTypes.STRING,
     country: DataTypes.STRING,
-    email: DataTypes.STRING
+    email: DataTypes.STRING,
+    image: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Developer',
   });
+
+  Developer.associate = (models) => {
+    Developer.belongsToMany(models.Ranking, {through: 'RankingDeveloper', foreignKey: 'developerId'})
+  };
+
   return Developer;
 };

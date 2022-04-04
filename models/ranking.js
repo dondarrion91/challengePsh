@@ -11,13 +11,6 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Ranking.associate = (models) => {
-        Ranking.belongsToMany(models.Developer, {
-          foreignKey: 'developerId',
-          through: 'RankingDeveloper',
-          as: 'Developer'
-        });
-      };
     }
   }
   Ranking.init({
@@ -26,5 +19,9 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'Ranking',
   });
+
+  Ranking.associate = (models) => {
+    Ranking.belongsToMany(models.Developer, {through: 'RankingDeveloper', foreignKey: 'rankingId'})
+  };
   return Ranking;
 };

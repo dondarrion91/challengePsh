@@ -11,28 +11,19 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Hackaton.associate = (models) => {
-        Hackaton.belongsToMany(models.Developer, {
-          foreignKey: 'developerId',
-          through: 'DeveloperHackatons',
-          as: 'Developer'
-        });
-      };
-
-      Hackaton.hasOne(models.Ranking, {
-        foreignKey: 'hackatonId',
-        as: 'Ranking',
-        onDelete: 'CASCADE'
-      });
     }
   }
   Hackaton.init({
-    startDate: DataTypes.DATE,
-    endDate: DataTypes.DATE,
-    prize: DataTypes.INTEGER
+    name: DataTypes.STRING,
+    place: DataTypes.STRING,
+    date: DataTypes.DATE
   }, {
     sequelize,
     modelName: 'Hackaton',
   });
+
+  Hackaton.associate = (models) => {
+    Hackaton.hasOne(models.Ranking)
+  };
   return Hackaton;
 };

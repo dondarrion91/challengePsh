@@ -8,22 +8,17 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      startDate: {
-        type: Sequelize.DATE
+      name: {
+        type: Sequelize.STRING,
+        allowNull: false
       },
-      endDate: {
-        type: Sequelize.DATE
+      place: {
+        type: Sequelize.STRING,
+        allowNull: false
       },
-      prize: {
-        type: Sequelize.INTEGER
-      },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+      date: {
+        type: Sequelize.DATE,
+        allowNull: false
       }
     });
   },

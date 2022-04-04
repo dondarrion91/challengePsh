@@ -21,5 +21,14 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'RankingDeveloper',
   });
+
+  RankingDeveloper.associate = (models) => {
+    RankingDeveloper.belongsTo(models.Ranking, {
+      foreignKey: 'rankingId'
+    });
+    RankingDeveloper.belongsTo(models.Developer, {
+      foreignKey: 'developerId'
+    });
+  }
   return RankingDeveloper;
 };

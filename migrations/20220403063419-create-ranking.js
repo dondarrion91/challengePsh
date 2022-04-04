@@ -13,14 +13,6 @@ module.exports = {
         references: { model: 'Hackatons', key: 'id' },
         onDelete: 'CASCADE',
         allowNull: false
-      },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
       }
     });
   },
