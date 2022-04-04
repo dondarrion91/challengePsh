@@ -6,12 +6,12 @@ export const getHackatons = async (req, res) => {
       include: [
         {
           model: Ranking,
-          attributes: {exclude: ["id", "hackatonId"]},
+          attributes: ["id"],
           include: [
             {
               model: Developer,
               through: {
-                attributes: ["position"]
+                attributes: ["position"],
               },
             },
           ],
