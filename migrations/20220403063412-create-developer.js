@@ -25,6 +25,10 @@ module.exports = {
       },
       image: {
         type: Sequelize.STRING
+      },
+      hackatonPoints: {
+        type: Sequelize.INTEGER,
+        defaultValue: 0
       }
     });
   },
