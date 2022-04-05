@@ -1,4 +1,4 @@
-import { Hackaton, Ranking, Developer, RankingDeveloper } from "../../models";
+import { Hackaton, Ranking, Developer } from "../../models";
 
 export const getHackatons = async (req, res) => {
   try {
@@ -7,14 +7,7 @@ export const getHackatons = async (req, res) => {
         {
           model: Ranking,
           attributes: ["id"],
-          include: [
-            {
-              model: Developer,
-              through: {
-                attributes: ["position"],
-              },
-            },
-          ],
+          include: [{ model: Developer, through: { attributes: ["position"] }}]
         },
       ],
     });
