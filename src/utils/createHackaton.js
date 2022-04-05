@@ -1,20 +1,19 @@
 import moment from "moment";
 import { sequelize, Developer } from "../../models";
 import { saveHackaton } from "./saveHackaton";
-import { randomIntFromInterval } from "./helper";
-const DEVELOPER_LIMIT=300;
+import { calculateHackatonPoints } from "./helper";
+const DEVELOPER_LIMIT = 300;
 
 export const createHackaton = async () => {
   const transac = await sequelize.transaction();
-  const offset = randomIntFromInterval(0, DEVELOPER_LIMIT);
 
   try {
     const developers = await Developer.findAll({
-      offset,
-      limit: 10
+      order: sequelize.literal("rand()"),
+      limit: 10,
     });
 
-    const developerMockData = developers.map((developer) => ({
+    const developerMockData = developers.map((developer, index) => ({
       id: developer.id,
       firstName: developer.firstName,
       lastName: developer.lastName,
@@ -22,8 +21,22 @@ export const createHackaton = async () => {
       country: developer.country,
       email: developer.email,
       image: developer.image,
+      hackatonPoints:
+        developer.hackatonPoints + (calculateHackatonPoints(index + 1) || 0),
     }));
 
+    // Adds actual hackaton points to developer total points
+    await Promise.all(
+      developerMockData.map((developer) =>
+        Developer.update(
+          developer,
+          { where: { id: developer.id } },
+          { transaction: transac }
+        )
+      )
+    );
+
+    // Gets the first developer location to use it as hackaton location.
     const hackatonRandomLocation = developers[0].country;
 
     const hackatonData = {

@@ -3,10 +3,10 @@ import _ from "lodash";
 const routerObject = express.Router();
 
 // Model routers
-import initTestRouter from "./test.router";
 import initHackatonRouter from "./hackaton.router";
+import initDeveloperRouter from "./developer.router";
 
-const makeRouter = _.flow([initTestRouter, initHackatonRouter]);
+const makeRouter = _.flow([initHackatonRouter, initDeveloperRouter]);
 const router = makeRouter(routerObject);
 
 export default router;
