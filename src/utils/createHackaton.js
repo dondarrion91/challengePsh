@@ -2,7 +2,6 @@ import moment from "moment";
 import { sequelize, Developer } from "../../models";
 import { saveHackaton } from "./saveHackaton";
 import { calculateHackatonPoints } from "./helper";
-const DEVELOPER_LIMIT = 300;
 
 export const createHackaton = async () => {
   const transac = await sequelize.transaction();

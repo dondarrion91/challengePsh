@@ -4,10 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test:rest": "cross-env NODE_ENV=test jest --forceExit --detectOpenHandles  --watchAll --maxWorkers=1",
+    "test:unit": "cross-env NODE_ENV=test jest ./test/unit/",
     "babel-node": "babel-node",
     "dev": "nodemon --exec babel-node index.js",
     "build": "babel src --out-dir dist",
     "start": "node dist/index.js"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
   },
   "keywords": [],
   "author": "",
@@ -26,8 +34,12 @@
     "@babel/core": "^7.17.8",
     "@babel/node": "^7.16.8",
     "@babel/preset-env": "^7.16.11",
+    "babel-polyfill": "^6.26.0",
+    "cross-env": "^7.0.3",
     "dotenv": "^16.0.0",
+    "jest": "^27.5.1",
     "nodemon": "^2.0.15",
-    "sequelize-cli": "^6.4.1"
+    "sequelize-cli": "^6.4.1",
+    "supertest": "^6.2.2"
   }
 }

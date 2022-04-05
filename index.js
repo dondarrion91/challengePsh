@@ -14,3 +14,5 @@ app.use("/api/v1", router);
 app.listen("8081", () => {
   console.log("Server is running on port 8081");
 });
+
+export default app;
