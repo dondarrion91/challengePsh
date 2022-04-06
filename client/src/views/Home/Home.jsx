@@ -4,17 +4,8 @@ import { Container, Row, Col } from "react-bootstrap";
 // Components
 import HomeIntro from "./components/HomeIntro";
 
-import styled from "styled-components";
-
-const Wrapper = styled.div`
-  height: 100vh;
-`;
-
-const Img = styled.img`
-  width: 80%;
-  height: 100%;
-  object-fit: scale-down;
-`;
+// Styles
+import { Wrapper, Img } from "./style/styled-components";
 
 export default function Home() {
   return (
