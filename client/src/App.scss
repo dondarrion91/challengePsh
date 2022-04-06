@@ -1,0 +1,16 @@
+$primary: #73D8FA;
+$secondary: #4637FA;
+$info: #D53DE0;
+$danger: #F75036;
+$warning: #EDA134;
+$dark-white: #E9F3F8;
+
+.dark-white {
+    background-color: $dark-white;
+}
+
+html {
+    @extend .dark-white
+}
+
+@import "~bootstrap/scss/bootstrap";
