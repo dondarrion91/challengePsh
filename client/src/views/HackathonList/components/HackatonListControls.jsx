@@ -14,25 +14,15 @@ export default function HackatonListControls(props) {
             <FontAwesomeIcon icon={faSearch} />
           </InputGroup.Text>
           <Form.Control
-            value={search.name}
+            value={search}
             placeholder="Search..."
             aria-label="Search..."
             aria-describedby="basic-addon1"
             onChange={(event) =>
-              setSearch({ ...search, name: event.target.value })
+              setSearch(event.target.value)
             }
           />
         </InputGroup>
-      </Col>
-      <Col md={3}>
-        <input
-          className="form-control"
-          type="date"
-          value={search.date}
-          onChange={(event) =>
-            setSearch({ ...search, name: event.target.value })
-          }
-        />
       </Col>
     </Row>
   );
