@@ -13,4 +13,8 @@ html {
     @extend .dark-white
 }
 
+.no-underline {
+    text-decoration: none;
+}
+
 @import "~bootstrap/scss/bootstrap";

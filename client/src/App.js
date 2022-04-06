@@ -9,13 +9,15 @@ import "./App.scss";
 
 // Views
 import Home from "./views/Home/Home";
+import HackatonList from "./views/HackathonList/HackatonList";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App dark-white">
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/hackathon-list" element={<HackatonList />} />
       </Routes>
     </div>
   );
