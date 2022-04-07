@@ -2,6 +2,17 @@ import { Users } from "../../models";
 import { getToken, hashPassword, checkPassword } from "../utils/auth";
 const Hour = 3600000;
 
+const errorMessage = (error) => {
+  return {
+    message:
+      error.type === "unique violation"
+        ? `The user with email ${error.value} already exists`
+        : "Internal Server Error",
+    status: "Error",
+    code: 500,
+  };
+};
+
 export const register = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -16,7 +27,7 @@ export const register = async (req, res) => {
       .status(200)
       .cookie("token", token, {
         expires: new Date(Date.now() + Hour),
-        secure: process.env.NODE_ENV !== "development",
+        secure: false,
         httpOnly: true,
       })
       .json({
@@ -25,12 +36,8 @@ export const register = async (req, res) => {
         code: 200,
       });
   } catch (error) {
-    console.log(error);
-    res.status(500).json({
-      message: "Internal Server Error",
-      status: "Error",
-      code: 500,
-    });
+    console.log(error)
+    res.status(403).json(errorMessage(error.errors[0]));
   }
 };
 
