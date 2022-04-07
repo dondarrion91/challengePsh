@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Navigate } from "react-router-dom";
 import { Container, Row, Col, ListGroup } from "react-bootstrap";
 import { http } from "../../utils/axios";
 
@@ -12,21 +12,29 @@ export default function Hackaton() {
   const [developers, setDevelopers] = useState([]);
   const [hackaton, setHackaton] = useState({});
   const [error, setError] = useState(false);
+  const [isLogged, setIsLogged] = useState(true);
 
   useEffect(() => {
     const getHackaton = async () => {
-      const res = await http.get(`/hackaton${search}`);
-
-      if (res.data.code === 200) {
+      try {
+        const res = await http.get(`/hackaton${search}`);
         setDevelopers(res.data.data[0].Ranking.Developers);
         setHackaton(res.data.data[0]);
-      } else {
-        setError(true);
+      } catch (error) {
+        if (error.message.includes("401")) {
+          setIsLogged(false);
+        } else {
+          setError(true);
+        }
       }
     };
 
     getHackaton();
   }, [search]);
+
+  if (!isLogged) {
+    return <Navigate to="/" replace />;
+  }
 
   if (!hackaton.name || !developers.length) {
     if (error) {

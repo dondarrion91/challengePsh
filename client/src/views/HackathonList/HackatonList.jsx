@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Container, Row, Col, Card, Spinner } from "react-bootstrap";
+import { Container, Row, Col, Card } from "react-bootstrap";
 import { http } from "../../utils/axios";
 import { filterHackathons, makeDate } from "./helper";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 // Components
 import HackatonListControls from "./components/HackatonListControls";
@@ -13,21 +13,29 @@ export default function HackatonList() {
   const [isLoaded, setisLoaded] = useState(false);
   const [search, setSearch] = useState("");
   const [error, setError] = useState(false);
+  const [isLogged, setIsLogged] = useState(true);
 
   useEffect(() => {
     const getHackathonList = async () => {
-      const res = await http.get("/hackaton");
-
-      if (res.data.code === 200) {
+      try {
+        const res = await http.get("/hackaton");
         setisLoaded(true);
         setHackathonList(filterHackathons(res.data.data, search));
-      } else {
-        setError(true);
+      } catch (error) {
+        if (error.message.includes("401")) {
+          setIsLogged(false);
+        } else {
+          setError(true);
+        }
       }
     };
 
     getHackathonList();
   }, [search]);
+
+  if (!isLogged) {
+    return <Navigate to="/" replace />;
+  }
 
   if (!isLoaded) {
     if (error) {

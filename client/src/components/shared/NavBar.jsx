@@ -25,8 +25,8 @@ export default function NavBar() {
         <Link className="nav-link" to="/world-ranking">
           <span className="text-dark-white">World Ranking</span>
         </Link>
-        <Link className="nav-link ms-auto me-3" to="/world-ranking">
-          <span className="text-dark-white">Login</span>
+        <Link className="nav-link ms-auto me-3" to="/register">
+          <span className="text-dark-white">Register</span>
         </Link>
       </Navbar.Collapse>
     </Navbar>
