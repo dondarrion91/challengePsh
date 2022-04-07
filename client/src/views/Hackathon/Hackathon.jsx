@@ -33,7 +33,7 @@ export default function Hackaton() {
   }, [search]);
 
   if (!isLogged) {
-    return <Navigate to="/" replace />;
+    return <Navigate to="/login" replace />;
   }
 
   if (!hackaton.name || !developers.length) {

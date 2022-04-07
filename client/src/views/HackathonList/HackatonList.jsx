@@ -34,7 +34,7 @@ export default function HackatonList() {
   }, [search]);
 
   if (!isLogged) {
-    return <Navigate to="/" replace />;
+    return <Navigate to="/login" replace />;
   }
 
   if (!isLoaded) {

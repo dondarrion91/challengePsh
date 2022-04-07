@@ -34,7 +34,7 @@ export default function WorldRanking() {
   }, []);
 
   if (!isLogged) {
-    return <Navigate to="/register" replace />;
+    return <Navigate to="/login" replace />;
   }
 
   if (!isLoaded || !developers.length) {
