@@ -14,22 +14,21 @@ export default function NavBar() {
           alt="hackaton site logo"
         />
         <Link className="no-underline" to="/">
-          <span className="text-white fw-bold ms-4">WORLD HACKATHON SITE</span>
+          <span className="text-white fw-bold ms-4">HACKATHON</span>
         </Link>
       </Navbar.Brand>
-      <Nav>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" className="me-3" />
+      <Navbar.Collapse id="basic-navbar-nav">
         <Link className="nav-link" to="/hackathon-list">
-          Hackathons list
+          <span className="text-dark-white">Hackathons list</span>
         </Link>
-        <Link className="nav-link" to="/world-best-developers">
-          World best developers
+        <Link className="nav-link" to="/world-ranking">
+          <span className="text-dark-white">World Ranking</span>
         </Link>
-      </Nav>
-      <Navbar className="ms-auto me-3" id="basic-navbar-nav">
-        <Nav>
-          <Button variant="primary">Login</Button>
-        </Nav>
-      </Navbar>
+        <Link className="nav-link ms-auto me-3" to="/world-ranking">
+          <span className="text-dark-white">Login</span>
+        </Link>
+      </Navbar.Collapse>
     </Navbar>
   );
 }
