@@ -12,10 +12,10 @@ export default function Home() {
     <Wrapper className="dark-white">
       <Container className="h-100 d-flex">
         <Row>
-          <Col className="d-flex align-items-center">
+          <Col md={6} className="d-flex align-items-center">
             <HomeIntro />
           </Col>
-          <Col className="d-flex align-items-center">
+          <Col md={6} className="d-flex align-items-center">
             <div className="text-center">
               <Img
                 src={require("../../img/cloud.png")}

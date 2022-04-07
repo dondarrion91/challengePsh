@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import intro from "../intro.json";
 
 export default function HomeIntro() {
@@ -10,9 +11,9 @@ export default function HomeIntro() {
 
       <p className="text-muted">{intro.home.description}</p>
 
-      <Button variant="primary">
+      <Link className="btn btn-primary" to="/hackathon-list">
         <span className="text-white fw-bolder">Explore</span>
-      </Button>
+      </Link>
     </div>
   );
 }
