@@ -2,7 +2,7 @@ import { Users } from "../../models";
 import { getToken, hashPassword, checkPassword } from "../utils/auth";
 const Hour = 3600000;
 
-const errorMessage = (error) => {
+const serverErrorMessage = (error) => {
   return {
     message:
       error.type === "unique violation"
@@ -37,7 +37,7 @@ export const register = async (req, res) => {
       });
   } catch (error) {
     console.log(error)
-    res.status(403).json(errorMessage(error.errors[0]));
+    res.status(403).json(serverErrorMessage(error.errors[0]));
   }
 };
 
@@ -50,6 +50,14 @@ export const login = async (req, res) => {
         email,
       },
     });
+
+    if (!user) {
+      res.status(404).json({
+        message: "User Not Found",
+        status: "Not Found",
+        code: 404,
+      });
+    }
 
     const passwordIsCorrect = checkPassword(password, user.password);
 
