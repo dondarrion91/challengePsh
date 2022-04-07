@@ -10,6 +10,7 @@ import "./App.scss";
 // Views
 import Home from "./views/Home/Home";
 import HackatonList from "./views/HackathonList/HackatonList";
+import Hackathon from "./views/Hackathon/Hackathon";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/hackathon-list" element={<HackatonList />} />
+        <Route path="/hackathon" element={<Hackathon />} />
       </Routes>
     </div>
   );
