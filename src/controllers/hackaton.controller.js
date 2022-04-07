@@ -2,7 +2,7 @@ import { Hackaton, Ranking, Developer } from "../../models";
 
 export const getHackatons = async (req, res) => {
   try {
-    const hackatonData = await Hackaton.findAll({
+    const filters = {
       include: [
         {
           model: Ranking,
@@ -10,7 +10,11 @@ export const getHackatons = async (req, res) => {
           include: [{ model: Developer, through: { attributes: ["position"] }}]
         },
       ],
-    });
+    };
+
+    if (req.query.id) filters.where = {id: req.query.id}
+
+    const hackatonData = await Hackaton.findAll(filters);
 
     res.status(200).json({
       data: hackatonData,
