@@ -1,34 +1,34 @@
-$primary: #73D8FA;
-$secondary: #4637FA;
-$info: #D53DE0;
-$danger: #F75036;
-$warning: #EDA134;
-$dark-white: #E9F3F8;
-$silver: #C0C0C0;
+$primary: #73d8fa;
+$secondary: #4637fa;
+$info: #d53de0;
+$danger: #f75036;
+$warning: #eda134;
+$dark-white: #e9f3f8;
+$silver: #c0c0c0;
 $copper: #b87333;
 
 .dark-white {
-    background-color: $dark-white;
+  background-color: $dark-white;
 }
 
 .text-dark-white {
-    color: $dark-white;
+  color: $dark-white;
 }
 
 .bg-copper {
-    background-color: $copper;
+  background-color: $copper;
 }
 
 .bg-silver {
-    background-color: $silver;
+  background-color: $silver;
 }
 
 html {
-    @extend .dark-white
+  @extend .dark-white;
 }
 
 .no-underline {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 @import "~bootstrap/scss/bootstrap";
