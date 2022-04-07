@@ -53,7 +53,7 @@ export const login = async (req, res) => {
 
     if (!user) {
       res.status(404).json({
-        message: "User Not Found",
+        message: "User Not Found, please try again...",
         status: "Not Found",
         code: 404,
       });
@@ -63,8 +63,8 @@ export const login = async (req, res) => {
 
     if (!passwordIsCorrect) {
       res.status(401).json({
-        message: "Unauthorized",
-        status: "Authorization error",
+        message: "Incorrect password, please try again...",
+        status: "Unauthorized",
         code: 401,
       });
     }
