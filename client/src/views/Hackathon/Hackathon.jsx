@@ -3,12 +3,9 @@ import { useLocation } from "react-router-dom";
 import { Container, Row, Col, ListGroup } from "react-bootstrap";
 import { http } from "../../utils/axios";
 
-// Styles
-import { Circle } from "./style/styled-components";
-
 // Components
 import Ranking from "../../components/shared/Ranking";
-import Loader from "../../components/shared/Loader"
+import Loader from "../../components/shared/Loader";
 
 export default function Hackaton() {
   const { search } = useLocation();
@@ -41,7 +38,7 @@ export default function Hackaton() {
       );
     }
 
-    return <Loader />
+    return <Loader />;
   }
 
   return (
@@ -52,17 +49,18 @@ export default function Hackaton() {
             <span className="h1 text-secondary">
               {hackaton.name.toUpperCase()}
             </span>
-            <ListGroup.Item className="bg-secondary mt-5">
-              <span className="h1 text-dark-white">RANKING</span>
-            </ListGroup.Item>
-            {developers.map((developer, index) => (
-              <Ranking
-                developer={developer}
-                position={index + 1}
-                Circle={Circle}
-                key={index}
-              />
-            ))}
+            <ListGroup as="ul" variant="flush">
+              <ListGroup.Item className="bg-secondary mt-5">
+                <span className="h1 text-dark-white">RANKING</span>
+              </ListGroup.Item>
+              {developers.map((developer, index) => (
+                <Ranking
+                  developer={developer}
+                  position={index + 1}
+                  key={index}
+                />
+              ))}
+            </ListGroup>
           </Col>
         </Row>
       </Container>
