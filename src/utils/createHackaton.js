@@ -18,7 +18,7 @@ export const createHackaton = async () => {
       lastName: developer.lastName,
       gender: developer.gender,
       country: developer.country,
-      email: developer.email,
+      city: developer.city,
       image: developer.image,
       hackatonPoints:
         developer.hackatonPoints + (calculateHackatonPoints(index + 1) || 0),
@@ -36,11 +36,14 @@ export const createHackaton = async () => {
     );
 
     // Gets the first developer location to use it as hackaton location.
-    const hackatonRandomLocation = developers[0].country;
+    const hackatonRandomLocation = {
+      country: developers[0].country,
+      city: developers[0].city,
+    };
 
     const hackatonData = {
-      name: `Hackaton ${hackatonRandomLocation} ${moment().year()}`,
-      place: `${hackatonRandomLocation}`,
+      name: `Hackaton ${hackatonRandomLocation.city} ${moment().year()}`,
+      place: `${hackatonRandomLocation.country} - ${hackatonRandomLocation.city}`,
       date: moment().utc().toISOString(),
     };
 

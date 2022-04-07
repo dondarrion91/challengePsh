@@ -21,7 +21,7 @@ module.exports = {
        lastName: data.name.last,
        gender: data.gender,
        country: data.location.country,
-       email: data.email,
+       city: data.location.city,
        image: data.picture.medium,
      }));
 

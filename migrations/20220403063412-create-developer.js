@@ -20,7 +20,7 @@ module.exports = {
       country: {
         type: Sequelize.STRING
       },
-      email: {
+      city: {
         type: Sequelize.STRING
       },
       image: {
