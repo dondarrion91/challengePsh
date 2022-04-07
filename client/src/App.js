@@ -11,6 +11,7 @@ import "./App.scss";
 import Home from "./views/Home/Home";
 import HackatonList from "./views/HackathonList/HackatonList";
 import Hackathon from "./views/Hackathon/Hackathon";
+import WorldRanking from "./views/WorldRanking/WorldRanking";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/hackathon-list" element={<HackatonList />} />
         <Route path="/hackathon" element={<Hackathon />} />
+        <Route path="/world-ranking" element={<WorldRanking />} />
       </Routes>
     </div>
   );
