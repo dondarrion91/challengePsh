@@ -13,7 +13,9 @@ export default function WorldRanking() {
 
   useEffect(() => {
     const getHackathonList = async () => {
-      const res = await http.get("/developer?order=hackatonPoints:desc&limit=10");
+      const res = await http.get(
+        "/developer?order=hackatonPoints:desc&limit=10"
+      );
 
       if (res.data.code === 200) {
         setisLoaded(true);
@@ -26,7 +28,7 @@ export default function WorldRanking() {
     getHackathonList();
   }, []);
 
-  if (!isLoaded) {
+  if (!isLoaded || !developers.length) {
     if (error) {
       return (
         <p className="text-center text-muted mt-5">

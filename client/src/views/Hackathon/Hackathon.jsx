@@ -28,7 +28,7 @@ export default function Hackaton() {
     getHackaton();
   }, [search]);
 
-  if (!hackaton.name) {
+  if (!hackaton.name || !developers.length) {
     if (error) {
       return (
         <p className="text-center text-muted mt-5">
