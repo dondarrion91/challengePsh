@@ -10,7 +10,7 @@ import Loader from "../../components/shared/Loader";
 
 export default function HackatonList() {
   const [hackathonList, setHackathonList] = useState([]);
-  const [isLoaded, setisLoaded] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
   const [search, setSearch] = useState("");
   const [error, setError] = useState(false);
   const [isLogged, setIsLogged] = useState(true);
@@ -19,9 +19,7 @@ export default function HackatonList() {
     const getHackathonList = async () => {
       try {
         const res = await http.get("/hackaton");
-        setisLoaded(true);
-        console.log(res.data.data)
-        console.log(search)
+        setIsLoaded(true);
         setHackathonList(filterHackathons(res.data.data, search));
       } catch (error) {
         if (error.message.includes("401")) {
