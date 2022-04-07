@@ -4,9 +4,23 @@ $info: #D53DE0;
 $danger: #F75036;
 $warning: #EDA134;
 $dark-white: #E9F3F8;
+$silver: #C0C0C0;
+$copper: #b87333;
 
 .dark-white {
     background-color: $dark-white;
+}
+
+.text-dark-white {
+    color: $dark-white;
+}
+
+.bg-copper {
+    background-color: $copper;
+}
+
+.bg-silver {
+    background-color: $silver;
 }
 
 html {
