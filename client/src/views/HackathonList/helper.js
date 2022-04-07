@@ -10,5 +10,5 @@ export const filterHackathons = (hackathons, filters) => {
 };
 
 export const makeDate = (date) => {
-  return moment(date).format("LLLL");
+  return moment(new Date(date)).format("LLLL");
 };

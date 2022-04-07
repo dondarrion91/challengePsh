@@ -20,6 +20,8 @@ export default function HackatonList() {
       try {
         const res = await http.get("/hackaton");
         setisLoaded(true);
+        console.log(res.data.data)
+        console.log(search)
         setHackathonList(filterHackathons(res.data.data, search));
       } catch (error) {
         if (error.message.includes("401")) {
