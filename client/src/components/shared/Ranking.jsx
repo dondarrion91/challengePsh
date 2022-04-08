@@ -16,6 +16,7 @@ export default function Ranking(props) {
   const position = props.position;
   const showPrize = props.showPrize;
 
+  // Color classes fot the first three positions in the hackathon
   const winnerClass = {
     1: "bg-warning",
     2: "bg-silver",
