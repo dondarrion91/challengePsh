@@ -536,6 +536,21 @@ Get data of the hackathon with id 1.
 }
 ```
 
+## Unit testing
+
+* Backend unit tests, in the root folder run:
+    ```
+    npm run test:unit
+    ```
+    - <img src="img/test1.png" width="1000" height="400" alt="DER">
+
+* Frontend unit tests, in the client folder run:
+    ```
+    npm test
+    ```
+    - <img src="img/test2.png" width="800" height="350" alt="DER">
+
+
 Thank you very much! Good luck have fun!
 
 Julián Sánchez - FullStack Developer :D
