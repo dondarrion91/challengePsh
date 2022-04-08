@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:rest": "cross-env NODE_ENV=test jest --forceExit --detectOpenHandles  --watchAll --maxWorkers=1",
     "test:unit": "cross-env NODE_ENV=test jest ./test/unit/",
     "babel-node": "babel-node",
     "dev": "nodemon --exec babel-node index.js",

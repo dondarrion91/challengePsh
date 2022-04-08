@@ -54,12 +54,9 @@ export default function Hackaton() {
       <Container>
         <Row>
           <Col className="mt-4 text-center" md={{ span: 10, offset: 1 }}>
-            <span className="h1 text-secondary">
-              {hackaton.name.toUpperCase()}
-            </span>
             <ListGroup as="ul" variant="flush">
               <ListGroup.Item className="bg-secondary mt-5">
-                <span className="h1 text-dark-white">RANKING</span>
+                <span className="h1 text-dark-white">{hackaton.name.toUpperCase()} TOP 10 DEVELOPERS</span>
               </ListGroup.Item>
               {developers.map((developer, index) => (
                 <Ranking

@@ -18,8 +18,8 @@ app.use(
 
 app.use("/api/v1", router);
 
-app.listen("8081", () => {
-  console.log("Server is running on port 8081");
+app.listen(process.env.PORT, () => {
+  console.log("Server is running on port " + process.env.PORT);
 });
 
 export default app;
