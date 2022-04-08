@@ -38,9 +38,16 @@ export default function WorldRanking() {
   }
 
   if (!isLoaded || !developers.length) {
+    if (!developers.length) {
+      return (
+        <p className="text-center text-muted mt-5 h4">
+          The first event is about to start! Be patient to see our leader developers...
+        </p>
+      );
+    }
     if (error) {
       return (
-        <p className="text-center text-muted mt-5">
+        <p className="text-center text-muted mt-5 h4">
           Oops! We got a problem showing the list... Please try again later!
         </p>
       );

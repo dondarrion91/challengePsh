@@ -37,6 +37,14 @@ export default function HackatonList() {
     return <Navigate to="/login" replace />;
   }
 
+  if (!hackathonList.length) {
+    return (
+      <p className="text-center text-muted mt-5 h4">
+        The first hackathon is about to start in 5 minutes! Stay in tune...
+      </p>
+    );
+  }
+
   if (!isLoaded) {
     if (error) {
       return (
@@ -54,7 +62,7 @@ export default function HackatonList() {
       <HackatonListControls search={search} setSearch={setSearch} />
       {!hackathonList.length ? (
         <p className="text-center text-muted h4">
-          No results for <strong>"{search}"</strong>
+          No results, please try again...
         </p>
       ) : (
         <Row>

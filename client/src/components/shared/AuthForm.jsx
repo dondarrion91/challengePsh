@@ -34,8 +34,8 @@ export default function AuthForm({
           }
         />
       </Form.Group>
-      <Button variant="primary">
-        <span className="text-dark-white" onClick={registerUser}>
+      <Button variant="primary" onClick={registerUser}>
+        <span className="text-dark-white">
           {type === "register" ? "Register" : "Login"}
         </span>
       </Button>
