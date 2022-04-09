@@ -1,6 +1,7 @@
 import React from "react";
 import { ListGroup, Badge, Row, Col } from "react-bootstrap";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 const Circle = styled.div`
   display: flex;
@@ -12,9 +13,7 @@ const Circle = styled.div`
 `;
 
 export default function Ranking(props) {
-  const developer = props.developer;
-  const position = props.position;
-  const showPrize = props.showPrize;
+  const {developer, position, showPrize } = props;
 
   // Color classes fot the first three positions in the hackathon
   const winnerClass = {
@@ -49,10 +48,7 @@ export default function Ranking(props) {
           </Col>
           <Col xs={6} sm={4} className="d-flex my-4">
             <strong className="text-info">
-              {developer.firstName.toUpperCase()}
-            </strong>
-            <strong className="text-info ms-2">
-              {developer.lastName.toUpperCase()}
+              {developer.firstName.toUpperCase()} {developer.lastName.toUpperCase()}
             </strong>
           </Col>
           <Col xs={12} sm={4} className="my-4">
@@ -79,3 +75,10 @@ export default function Ranking(props) {
     </>
   );
 }
+
+
+Ranking.propTypes = {
+  developer: PropTypes.object.isRequired,
+  position: PropTypes.number.isRequired,
+  showPrize: PropTypes.bool.isRequired
+};

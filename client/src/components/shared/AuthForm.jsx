@@ -1,6 +1,6 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap";
-
+import PropTypes from "prop-types";
 export default function AuthForm({
   userData,
   setuserData,
@@ -45,3 +45,11 @@ export default function AuthForm({
     </Form>
   );
 }
+
+AuthForm.propTypes = {
+  userData: PropTypes.object.isRequired,
+  setuserData: PropTypes.func.isRequired,
+  registerUser: PropTypes.func.isRequired,
+  errorObject: PropTypes.object.isRequired,
+  type: PropTypes.string,
+};

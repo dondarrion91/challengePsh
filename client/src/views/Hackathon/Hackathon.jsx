@@ -63,6 +63,7 @@ export default function Hackaton() {
                   developer={developer}
                   position={index + 1}
                   key={index}
+                  showPrize={false}
                 />
               ))}
             </ListGroup>

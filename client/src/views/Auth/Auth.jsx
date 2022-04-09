@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { http } from "../../utils/axios";
 import { Navigate } from "react-router-dom";
+import PropTypes from "prop-types";
 
 // Components
 import AuthForm from "../../components/shared/AuthForm";
@@ -9,7 +10,7 @@ import AuthForm from "../../components/shared/AuthForm";
 // styles
 import { ImageContainer, Image } from "./style/styled-components";
 
-export default function Register({ type }) {
+export default function Auth({ type }) {
   const [userData, setuserData] = useState({
     email: "",
     password: "",
@@ -63,3 +64,7 @@ export default function Register({ type }) {
     </Container>
   );
 }
+
+Auth.propTypes = {
+  type: PropTypes.string.isRequired,
+};

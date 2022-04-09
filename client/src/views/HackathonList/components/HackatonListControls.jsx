@@ -2,6 +2,7 @@ import React from "react";
 import { Row, Col, InputGroup, Form } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import PropTypes from "prop-types";
 
 export default function HackatonListControls(props) {
   const { search, setSearch } = props;
@@ -27,3 +28,8 @@ export default function HackatonListControls(props) {
     </Row>
   );
 }
+
+HackatonListControls.propTypes = {
+  search: PropTypes.string.isRequired,
+  setSearch: PropTypes.func.isRequired,
+};
